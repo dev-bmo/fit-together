@@ -38,15 +38,22 @@ public class SignupHandleController extends HttpServlet {
 						String.join(",", interests));
 				result = userDao.save(one);
 			}
+
+			if(result) {
+				// 여기에서 로그인 상태가 되게 코드를 작성
+				
+				
+				response.sendRedirect(request.getContextPath()+"/login");
+				
+			}else {
+				response.sendRedirect(request.getContextPath()+"/signup?error");
+			}
+			
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		
-		if(result) {
-			response.sendRedirect(request.getContextPath()+"/login");
-		}else {
-			response.sendRedirect(request.getContextPath()+"/signup?error");
-		}
 		
 	}
 
