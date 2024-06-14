@@ -19,8 +19,9 @@
 </head>
 <body>
 	<div class="container px-1">
-		<div>
+		<div class="d-flex space-between">
 			<h1 class="text-center">핏투게더</h1>
+			${sessionScope.authUser.name }님 로그온
 		</div>
 	</div>
 </body>
