@@ -24,37 +24,40 @@ public class SignupHandleController extends HttpServlet {
 		int birth = Integer.parseInt(request.getParameter("birth"));
 		String gender = request.getParameter("gender");
 		String[] interests = request.getParameterValues("interest");
-		if(interests == null) {
+		if (interests == null) {
 			interests = new String[0];
 		}
-		
+
+		User one = new User(id, password, name, gender, birth, email, String.join(",", interests));
+
 		UserDao userDao = new UserDao();
 		boolean result = false;
-		
+
 		try {
+
 			User exist = userDao.findById(id);
+
 			if (exist == null) {
-				User one = new User(id, password, name, gender, birth, email,
-						String.join(",", interests));
 				result = userDao.save(one);
 			}
 
-			if(result) {
+			if (result) {
 				// 여기에서 로그인 상태가 되게 코드를 작성
-				
-				
-				response.sendRedirect(request.getContextPath()+"/login");
-				
-			}else {
-				response.sendRedirect(request.getContextPath()+"/signup?error");
+				request.getSession().setAttribute("authUser", one);
+				response.sendRedirect(request.getContextPath() + "/index");
+				/*
+				 * response.sendRedirect(request.getContextPahth()+"/login-handle?id="+id+"&password="+password);
+				 * 
+				 */
+
+			} else {
+				response.sendRedirect(request.getContextPath() + "/signup?error");
 			}
-			
-			
+
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
-		
+
 	}
 
 }

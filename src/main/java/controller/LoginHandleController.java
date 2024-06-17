@@ -2,11 +2,13 @@ package controller;
 
 import java.io.IOException;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.dao.UserDao;
 import model.vo.User;
 
@@ -25,9 +27,14 @@ public class LoginHandleController extends HttpServlet {
 				request.getRequestDispatcher("/WEB-INF/view/login-error.jsp").forward(request, response);
 
 			} else {
+				
+//				HttpSession session = request.getSession();
+//				session.setAttribute("authUser", user);
+				
 				request.getSession().setAttribute("authUser", user);
 				response.sendRedirect(request.getContextPath() + "/index");
 			}
+			
 		} catch (Exception e) {
 			System.out.println(e);
 			request.getRequestDispatcher("/WEB-INF/view/login-error.jsp").forward(request, response);

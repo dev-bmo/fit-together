@@ -22,6 +22,7 @@
 		<div>
 			<h1 class="text-center">핏투게더</h1>
 		</div>
+		
 	</div>
 </body>
 </html>

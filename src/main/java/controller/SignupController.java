@@ -10,8 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/signup")
 public class SignupController extends HttpServlet {
-	
-	
+		
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
