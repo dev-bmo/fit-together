@@ -43,7 +43,9 @@ public class SignupHandleController extends HttpServlet {
 		}
 		
 		if(result) {
+			request.getSession().setAttribute("tempId", id);
 			response.sendRedirect(request.getContextPath()+"/login");
+			
 		}else {
 			response.sendRedirect(request.getContextPath()+"/signup?error");
 		}
