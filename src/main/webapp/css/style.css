@@ -14,6 +14,19 @@ a {
 	text-decoration: none;
 }
 
+input:focus {
+	outline: none;
+}
+button:hover {
+	background-color: #ddd;
+	cursor: pointer;
+}
+
+button:active {
+	background-color: #ccc;
+	cursor: pointer;
+}
+
 /* 영역 사이즈 클래스 */
 .container {
 	width: 1140px;
@@ -78,6 +91,32 @@ a {
 .warning {
 	color: orangered;
 }
+
+.info {
+	color: limegreen;
+}
+
+
+/* 뱃지 클래스 */
+.badge-info {
+	background-color:  limegreen;
+	color: white;
+	padding : 4px 8px;
+	border-radius: 4px;
+}
+.badge-warning {
+	background-color:  orangered;
+	color: white;
+	padding : 4px 8px;
+	border-radius: 4px;
+}
+.badge-dark {
+	background-color:  #333333;
+	color: white;
+	padding : 4px 8px;
+	border-radius: 4px;
+}
+
 
 .fs-1 {
 	font-size: 2rem;
@@ -189,4 +228,17 @@ a {
 
 .my-5 {
 	margin: 20px auto;
+}
+/*
+.item {
+	box-shadow: 1px 2px 4px 1px #888888;
+}
+*/
+.item:hover {
+	background-color: #eee;
+}
+
+a {
+	text-decoration: none;
+	color: black;
 }

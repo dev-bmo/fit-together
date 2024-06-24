@@ -18,11 +18,9 @@
 	href="${pageContext.servletContext.contextPath }/css/style.css?<%=System.currentTimeMillis() %>" />
 </head>
 <body>
+	<%@ include file="/WEB-INF/view/common/navbar.jsp"%>
 	<div class="container px-1">
-		<div class="d-flex space-between">
-			<h1 class="text-center">핏투게더</h1>
-			${sessionScope.authUser.name }님 로그온
-		</div>
+		로그온중
 	</div>
 </body>
 </html>

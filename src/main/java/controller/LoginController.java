@@ -13,7 +13,13 @@ public class LoginController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		if(request.getParameter("url") != null) {
+			request.getSession().setAttribute("redirectUrl", request.getParameter("url"));
+		}else {
+			request.getSession().setAttribute("redirectUrl", "/index");
+		}
+		
 		request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
 	}
 }

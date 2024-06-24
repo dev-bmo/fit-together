@@ -49,7 +49,6 @@ public class SignupHandleController extends HttpServlet {
 				 * response.sendRedirect(request.getContextPahth()+"/login-handle?id="+id+"&password="+password);
 				 * 
 				 */
-
 			} else {
 				response.sendRedirect(request.getContextPath() + "/signup?error");
 			}
